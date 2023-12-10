@@ -1,0 +1,45 @@
+input:
+  filename: "S0_baseline.xlsx" # Input filename - from user (.xlsx)
+  sheet_names:
+    system: "system" # system definitions (name, model period, unit, scope, timestep)
+    parameters: "parameters" # information 
+    hist: "hist" # historic production of material
+    tc_values: "tc" # list of Transfer Coefficients (TC's)for all processes and materials
+    partitioning: "partitioning" # partitioning of recycled m'aterial to other materials
+  columns:
+    # Columns in system sheet
+    name: "system_name" # Name of overall system
+    start: "start_year" # Timestep value for model start
+    end: "end_year" # Timestep value for model end
+    unit: "unit" # unit for flows
+    # Columns in parameter and hist sheets
+    prod: "Product" # Product/material column name
+    stock: "stock_year_0_use" # Stock in timestep prior to model start
+    g_rate: "growth_rate" # Growthrate of production for each material in modelling period
+    pre_rec: "pre_consumer_recycling_year_0" # Part of production in timestep 1 from pre-consumer recycling in timestep 0
+    post_rec: "post_consumer_recycling_year_0" # Part of production in timestep 1 from post-consumer recycling in timestep 0
+    import: "import_year_0" # amount of production in timestep 1 from import in timestep 0
+    lifetime: "lifetime_years" # In-use lifetime of each product/material
+    sd: "sd_lifetime" # Standard deviation of in-use lifetime of each product/material
+    # Columns in tc_values sheet
+    flow: "Flow"
+    to: "To process" # name of column containing receiving process for each flow
+    from: "From process"  # name of column containing sending process for each flow
+    tc: "TC" # name of column containing transfer coefficients
+    # Name of input, stock and recycling processes
+    stock_process: "Use" # name of process containing stock
+    input_process: "Production" # name of process where input data is given
+    recycling_process: "Reprocessing" # name name of recycling process
+    # Name of recycling flows
+    recycled_flow: "Post recycled material" # name of recycled flow from recycling process 
+    pre_recycled_flow: "Pre recycled material" # name of pre-consumer waste flow
+    # Percentile 
+    q_fraction: 0.9995 # Percentile/cut-off of material released from stock
+    # Growth type
+    growth_type: "exponential" # Growth function used to estimate production
+output:
+  filename: "S3_results_v2.xlsx" # Excel output filename (.xlsx)
+  generate_sankey: "yes" # yes/no
+  sankey_years: [2020,2030] # Years for generating sankey
+  single_sankey_filename: "S3_sankey_2030_v2.html" # 
+  double_sankey_filename: "S3_sankey_2020_2030_v2.html" # 
