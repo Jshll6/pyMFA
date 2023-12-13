@@ -38,8 +38,8 @@ input:
     # Growth type
     growth_type: "exponential" # Growth function used to estimate production
 output:
-  filename: "S3_results_v2.xlsx" # Excel output filename (.xlsx)
+  filename: "S0_results.xlsx" # Excel output filename (.xlsx)
   generate_sankey: "yes" # yes/no
   sankey_years: [2020,2030] # Years for generating sankey
-  single_sankey_filename: "S3_sankey_2030_v2.html" # 
-  double_sankey_filename: "S3_sankey_2020_2030_v2.html" # 
+  single_sankey_filename: "S0_sankey_2030.html" # 
+  double_sankey_filename: "S0_sankey_2020_2030.html" # 
